@@ -1,23 +1,24 @@
 import request from 'superagent'
 
-export const addEvent = (characteristic) => {
+export const addEvent = (event) => {
   return {
     type: 'ADD_CHARACTERISTIC',
     characteristic
   }
 }
 
-export const postEvent = (characteristic) => {
+export const postEvent = (eventDetails) => {
   return (dispatch) => {
-    request
-      // .post('/api/characteristics')
-      // .send(characteristic)
-      // .end((err, res) => {
-      //   if (err) {
-      //     console.log(err)
-      //     return
-      //   }
-      //   dispatch(addEvent(res.body))
-      // })
+    console.log('hello', eventDetails)
+    // request
+    //   .post('/api/events')
+    //   .send(eventDetails)
+    //   .end((err, res) => {
+    //     if (err) {
+    //       console.log(err)
+    //       return
+    //     }
+    //   dispatch(addEvent(res.body))
+    //   })
   }
 }

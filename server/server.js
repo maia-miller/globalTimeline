@@ -3,7 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 
-var cats = require('./routes/catsRoute')
+var events = require('./routes/eventsRoute')
 
 const server = express()
 
@@ -12,7 +12,6 @@ server.use(cors('*'))
 server.use(bodyParser.json())
 server.use(express.static(path.join(__dirname, '../public')))
 
-server.use('/api/cats', cats)
-server.use('/api/characteristics', require('./routes/characteristicsRoute'))
+server.use('/api/events', events)
 
 module.exports = server

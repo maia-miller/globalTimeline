@@ -2,7 +2,7 @@ import React from 'react'
 // import {HashRouter as Router, Route} from 'react-router-dom'
 import {connect} from 'react-redux'
 
-import postEvent from '../actions/addEvent'
+import {postEvent} from '../actions/addEvent'
 
 class Nav extends React.Component {
   constructor(props) {
@@ -23,8 +23,8 @@ handleChange(e) {
 }
 
 onSubmit() {
-  console.log(this.state)
-  postEvent(this.state)
+  let eventDetails = this.state
+  this.props.dispatch(postEvent(eventDetails))
 }
 
 
@@ -43,7 +43,7 @@ onSubmit() {
             <label>Wikipedia Link</label>
             <input type="text" name="link" onChange={this.handleChange} />
 
-            <button onClick={this.onSubmit}>Submit</button>
+            <button onClick={() => this.onSubmit()}>Submit</button>
           </form>
         </div>
       </div>
