@@ -27,7 +27,6 @@ onSubmit() {
   this.props.dispatch(postEvent(eventDetails))
 }
 
-
   render() {
     return (
       <div className='nav'>
@@ -50,5 +49,12 @@ onSubmit() {
     )
   }
 }
+
+// mapStatetoProps(state) {
+//   return (
+//     events,
+//
+//   )
+// }
 
   export default connect()(Nav)

@@ -18,3 +18,4 @@ The most interesting way to view the world is: differently! Instead of understan
 * [ ] Event links to Wikipedia
 * [ ] Homescreen before getting to Timeline which describes what it is
 * [ ] Log in before can add event
+* [ ] User cannot add event that already exists on timeline
