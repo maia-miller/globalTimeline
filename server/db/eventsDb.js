@@ -6,13 +6,11 @@ const db = require('./connection')
 // }
 //
 const getEventById = (id, testDb) => {
-  console.log('4-getEventById', id)
   return (testDb || db)('events')
     .where('events.event_id', id)
 }
 
 const insertEvent = (event, testDb) => {
-  console.log('3-db function')
   return (testDb || db)('events').insert(event)
     .then(event_id => getEventById(event_id[0], db))
 }

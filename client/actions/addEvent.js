@@ -18,7 +18,6 @@ function addEvent(event) {
 }
 
 export function postEvent(eventDetails) {
-  console.log('1-action')
   return (dispatch) => {
     // dispatch(requestEventAdd())
     request
@@ -29,8 +28,7 @@ export function postEvent(eventDetails) {
           console.log(err)
           return
         }
-      console.log('6-res.body', res)
-      dispatch(addEvent(res.body))
+      dispatch(addEvent(res.body[0]))
       })
   }
 }
