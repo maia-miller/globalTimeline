@@ -26,28 +26,30 @@ export function postEvent(eventDetails) {
   return (dispatch) => {
     // dispatch(requestEventAdd())
     request
-      .post('/api/events')
-      .send(eventDetails)
-      .end((err, res) => {
-        if (err) {
-          console.log(err.message)
-          return
-        }
-      dispatch(addEvent(res.body[0]))
-      })
+    .post('/api/events')
+    .send(eventDetails)
+    .end((err, res) => {
+      if (err) {
+        console.log(err.message)
+        return
+      }
+    dispatch(addEvent(res.body[0]))
+    })
   }
 }
 
 export function getEvents() {
   return (dispatch) => {
-    // request
-    //   .get('/api/events')
-    //   .end((err, res) => {
-    //     if (err) {
-    //       console.error(err.message)
-    //       return
-    //     }
-    //   dispatch(receiveEvents(res.body))
-    //   })
+    request
+    .get('/api/events')
+    .end((err, res) => {
+      if (err) {
+        console.error(err.message)
+        return
+      }
+      console.log('res.body', res.body)
+      //**ERROR WITH RES.BODY HERE. IT'S COMING IN AS AN ARRAY**
+      // dispatch(receiveEvents(res.body))
+      })
     }
   }
