@@ -10,11 +10,16 @@ function requestEventAdd() {
 
 function addEvent(event) {
   return {
-    type: 'ADD_EVENT',
-    event,
-    pendingAdd: false,
-    eventAdded: true
+    type: 'ADD_EVENT'
+    // event,
+    // pendingAdd: false,
+    // eventAdded: true
   }
+}
+
+function receiveEvents(events) {
+  type: 'RECEIVE_EVENTS',
+  events
 }
 
 export function postEvent(eventDetails) {
@@ -25,10 +30,24 @@ export function postEvent(eventDetails) {
       .send(eventDetails)
       .end((err, res) => {
         if (err) {
-          console.log(err)
+          console.log(err.message)
           return
         }
       dispatch(addEvent(res.body[0]))
       })
   }
 }
+
+export function getEvents() {
+  return (dispatch) => {
+    request
+      .get('/api/events')
+      .end((err, res) => {
+        if (err) {
+          console.error(err.message)
+          return
+        }
+      dispatch(receiveEvents(res.body))
+      })
+    }
+  }

@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {postEvent} from '../actions/addEvent'
+import {getEvents, postEvent} from '../actions/eventActions'
 
 class Nav extends React.Component {
   constructor(props) {
@@ -15,6 +15,10 @@ class Nav extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
   }
+
+componentDidMount() {
+  this.props.dispatch(getEvents())
+}
 
 handleChange(e) {
   let value = e.target.value
@@ -50,11 +54,11 @@ onSubmit(e) {
   }
 }
 
-// mapStatetoProps(state) {
-//   return (
-//     events,
-//
-//   )
-// }
+const mapStatetoProps = (state) => {
+  console.log('state', state)
+  return {
+    events: state.events
+  }
+}
 
-  export default connect()(Nav)
+  export default connect(mapStatetoProps)(Nav)

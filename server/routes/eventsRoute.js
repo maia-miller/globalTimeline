@@ -3,13 +3,13 @@ var router = express.Router()
 
 var eventsDb = require('../db/eventsDb')
 
-// router.get('/', (req, res) => {
-//   let db = req.app.get('db')
-//   eventsDb.getCats(db)
-//     .then(cats => {
-//       res.json(cats)
-//     })
-// })
+router.get('/', (req, res) => {
+  let db = req.app.get('db')
+  eventsDb.getEvents(db)
+    .then(events => {
+      res.json(events)
+    })
+})
 
 router.post('/', (req, res) => {
   let db = req.app.get('db')

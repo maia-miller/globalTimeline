@@ -1,10 +1,10 @@
 const db = require('./connection')
 
-// const getCats = (testDb) => {
-//   return (testDb || db)('cats')
-//     .join('characteristics', 'cats.characteristic_id', 'characteristics.characteristic_id')
-// }
-//
+const getEvents = (testDb) => {
+  return (testDb || db)('events')
+    .select()
+}
+
 const getEventById = (id, testDb) => {
   return (testDb || db)('events')
     .where('events.event_id', id)
@@ -29,7 +29,7 @@ const insertEvent = (event, testDb) => {
 // }
 
 module.exports = {
-  // getCats,
+  getEvents,
   insertEvent
   // deleteCat,
   // editCat
