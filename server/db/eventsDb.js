@@ -5,17 +5,16 @@ const db = require('./connection')
 //     .join('characteristics', 'cats.characteristic_id', 'characteristics.characteristic_id')
 // }
 //
-// const getCatById = (id, testDb) => {
-//   return (testDb || db)('cats')
-//     .join('characteristics', 'cats.characteristic_id', 'characteristics.characteristic_id')
-//     .where('cats.id', id)
-// }
+const getEventById = (id, testDb) => {
+  console.log('4-getEventById', id)
+  return (testDb || db)('events')
+    .where('events.event_id', id)
+}
 
 const insertEvent = (event, testDb) => {
   console.log('3-db function')
   return (testDb || db)('events').insert(event)
-  // .then(response => console.log('response', response))
-    // .then(event_id => getCatById(cat_id[0], db))
+    .then(event_id => getEventById(event_id[0], db))
 }
 
 // const deleteCat = (id, testDb) => {

@@ -22,7 +22,7 @@ handleChange(e) {
 }
 
 onSubmit(e) {
-  e.preventDefault()
+  // e.preventDefault()
   let eventDetails = this.state
   this.props.dispatch(postEvent(eventDetails))
 }

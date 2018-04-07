@@ -29,6 +29,7 @@ export function postEvent(eventDetails) {
           console.log(err)
           return
         }
+      console.log('6-res.body', res)
       dispatch(addEvent(res.body))
       })
   }
