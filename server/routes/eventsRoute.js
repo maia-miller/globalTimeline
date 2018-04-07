@@ -13,6 +13,7 @@ var eventsDb = require('../db/eventsDb')
 
 router.post('/', (req, res) => {
   let db = req.app.get('db')
+  console.log('2-route')
   eventsDb.insertEvent(req.body, db)
     .then(event => res.json(event))
     .catch(err => res.status(500).send(err.message + 'SERVER ERROR'))

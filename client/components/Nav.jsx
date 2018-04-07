@@ -1,5 +1,4 @@
 import React from 'react'
-// import {HashRouter as Router, Route} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 import {postEvent} from '../actions/addEvent'
@@ -8,7 +7,7 @@ class Nav extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      event: null,
+      name: null,
       year: null,
       description: null,
       link: null
@@ -22,7 +21,8 @@ handleChange(e) {
   this.setState({[e.target.name]: e.target.value})
 }
 
-onSubmit() {
+onSubmit(e) {
+  e.preventDefault()
   let eventDetails = this.state
   this.props.dispatch(postEvent(eventDetails))
 }
@@ -34,7 +34,7 @@ onSubmit() {
         <div>
           <form>
             <label>Event Title</label>
-            <input type="text" name="event" onChange={this.handleChange} />
+            <input type="text" name="name" onChange={this.handleChange} />
             <label>Year</label>
             <input type="text" name="year" onChange={this.handleChange} />
             <label>Description</label>
@@ -42,7 +42,7 @@ onSubmit() {
             <label>Wikipedia Link</label>
             <input type="text" name="link" onChange={this.handleChange} />
 
-            <button onClick={() => this.onSubmit()}>Submit</button>
+            <button type='button' onClick={(e) => this.onSubmit(e)}>Submit</button>
           </form>
         </div>
       </div>

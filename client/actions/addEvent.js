@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-export const requestEventAdd = () => {
+function requestEventAdd() {
   return {
     type: 'REQUEST_EVENT_ADD',
     pendingAdd: true,
@@ -8,7 +8,7 @@ export const requestEventAdd = () => {
   }
 }
 
-export const addEvent = (event) => {
+function addEvent(event) {
   return {
     type: 'ADD_EVENT',
     event,
@@ -17,9 +17,10 @@ export const addEvent = (event) => {
   }
 }
 
-export const postEvent = (eventDetails) => {
+export function postEvent(eventDetails) {
+  console.log('1-action')
   return (dispatch) => {
-    dispatch(requestEventAdd())
+    // dispatch(requestEventAdd())
     request
       .post('/api/events')
       .send(eventDetails)

@@ -12,6 +12,7 @@ const db = require('./connection')
 // }
 
 const insertEvent = (event, testDb) => {
+  console.log('3-db function')
   return (testDb || db)('events').insert(event)
   // .then(response => console.log('response', response))
     // .then(event_id => getCatById(cat_id[0], db))
