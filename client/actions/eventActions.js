@@ -40,14 +40,14 @@ export function postEvent(eventDetails) {
 
 export function getEvents() {
   return (dispatch) => {
-    request
-      .get('/api/events')
-      .end((err, res) => {
-        if (err) {
-          console.error(err.message)
-          return
-        }
-      dispatch(receiveEvents(res.body))
-      })
+    // request
+    //   .get('/api/events')
+    //   .end((err, res) => {
+    //     if (err) {
+    //       console.error(err.message)
+    //       return
+    //     }
+    //   dispatch(receiveEvents(res.body))
+    //   })
     }
   }
